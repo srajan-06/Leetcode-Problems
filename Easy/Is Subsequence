@@ -1,0 +1,25 @@
+#include<iostream>
+#include<string>
+class Solution {
+private:
+    bool sub(string s,string t,int ls,int lt){
+        if(ls==-1){
+            return true;
+        }
+        if(lt==-1){
+            return false;
+        }
+        if(s[ls]==t[lt]){
+            return sub(s,t,ls-1,lt-1);
+        }
+        return sub(s,t,ls,lt-1);
+
+    }
+public:
+    bool isSubsequence(string s, string t) {
+        int ls = int(s.size()-1);
+        int lt = int(t.size()-1);
+        return sub(s,t,ls,lt);
+        
+    }
+};
